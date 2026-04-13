@@ -2,6 +2,7 @@ import { useState } from "react";
 import RoomPage from "./pages/RoomPage";
 import TenantPage from "./pages/TenantPage";
 import ContractPage from "./pages/ContractPage";
+import UtilityReadingPage from "./pages/UtilityReadingPage";
 
 function App() {
     const [page, setPage] = useState("rooms");
@@ -29,11 +30,19 @@ function App() {
                 >
                     Contracts
                 </button>
+
+                <button
+                    onClick={() => setPage("utilities")}
+                    className={`px-4 py-2 rounded-lg ${page === "utilities" ? "bg-blue-600" : "bg-slate-700"}`}
+                >
+                    Utilities
+                </button>
             </div>
 
             {page === "rooms" && <RoomPage />}
             {page === "tenants" && <TenantPage />}
             {page === "contracts" && <ContractPage />}
+            {page === "utilities" && <UtilityReadingPage />}
         </div>
     );
 }
